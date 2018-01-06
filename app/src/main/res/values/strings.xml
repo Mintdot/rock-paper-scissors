@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">RockPaperScissors</string>
+    <string name="versus">vs.</string>
+    <string name="p">PLAYER</string>
+    <string name="c">COMPUTER</string>
+    <string name="choice">What your choice?</string>
+    <string name="result">- RESULT -</string>
+    <string name="result2"><![CDATA["???"]]></string>
+    <string name="win">WIN</string>
+    <string name="lose">LOSE</string>
+    <string name="draw">DRAW</string>
+</resources>
