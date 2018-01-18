@@ -2,17 +2,21 @@ package com.example.mintdot.rockpaperscissors;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private int player;
     private int computer;
     private int result;
+    private int win;
+    private int lose;
+    private int draw;
 
     Game game;
 
@@ -24,11 +28,16 @@ public class MainActivity extends AppCompatActivity {
     ImageButton scissors;
 
     TextView resultText;
+    TextView ratingText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        win = 0;
+        lose = 0;
+        draw = 0;
 
         playerChoice = (ImageView) findViewById(R.id.player_choice);
         computerChoice = (ImageView) findViewById(R.id.computer_choice);
@@ -38,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         scissors = (ImageButton) findViewById(R.id.Player3);
 
         resultText = (TextView) findViewById(R.id.result);
+        ratingText = (TextView) findViewById(R.id.rating);
 
         rock.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
@@ -65,15 +75,34 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void play(int player) {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_reset:
+                gameReset();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void play(int player) {
         game = new Game(player);
         computer = game.computer();
         playerChoice();
         computerChoice();
-        message();
+        showResult();
+        showRating();
     }
 
-    public void playerChoice() {
+    private void playerChoice() {
         switch (player) {
             case 0:
                 playerChoice.setImageResource(R.drawable.p_rock);
@@ -87,33 +116,43 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void computerChoice() {
+    private void computerChoice() {
         switch (computer) {
             case 0:
-                computerChoice.setImageResource(R.drawable.p_rock);
+                computerChoice.setImageResource(R.drawable.c_rock);
                 break;
             case 1:
-                computerChoice.setImageResource(R.drawable.p_paper);
+                computerChoice.setImageResource(R.drawable.c_paper);
                 break;
             case 2:
-                computerChoice.setImageResource(R.drawable.p_scissors);
+                computerChoice.setImageResource(R.drawable.c_scissors);
                 break;
         }
     }
 
-    public void message() {
+    private void showResult() {
         result = game.compare(computer);
         switch (result) {
             case 0:
                 resultText.setText(getResources().getString(R.string.draw));
+                draw++;
                 break;
             case 1:
                 resultText.setText(getResources().getString(R.string.win));
+                win++;
                 break;
             case 2:
                 resultText.setText(getResources().getString(R.string.lose));
+                lose++;
                 break;
         }
+    }
+
+    private void showRating() {
+        ratingText.setText(win + "승 " + draw + "무 " + lose + "패");
+    }
+
+    private void gameReset() {
     }
 
 }

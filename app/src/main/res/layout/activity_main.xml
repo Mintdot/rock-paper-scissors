@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/p"
+                android:text="@string/player"
                 android:textSize="15dp" />
 
         </LinearLayout>
@@ -55,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/c"
+                android:text="@string/computer"
                 android:textSize="15dp" />
 
         </LinearLayout>
@@ -121,5 +121,14 @@
         android:layout_gravity="center"
         android:text="@string/result2"
         android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/rating"
+        android:layout_marginTop="10dp"
+        android:textSize="18dp"/>
 
 </LinearLayout>

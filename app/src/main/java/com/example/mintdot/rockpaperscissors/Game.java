@@ -24,7 +24,7 @@ public class Game {
             case 0: // 바위
                 if (cNum == 1) { // 바위 vs. 보
                     return 2;
-                } else if (cNum == 2) { // 바위 vs. 가위
+                } else if (cNum == 2) { // 바위 vs. 가위-
                     return 1;
                 }
                 break;
