@@ -153,6 +153,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void gameReset() {
+        playerChoice.setImageResource(R.drawable.question);
+        computerChoice.setImageResource(R.drawable.question);
+        resultText.setText(getResources().getString(R.string.result2));
+        ratingText.setText(getResources().getString(R.string.rating));
     }
 
 }
