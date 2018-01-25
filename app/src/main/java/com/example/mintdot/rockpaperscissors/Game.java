@@ -19,30 +19,12 @@ public class Game {
     }
 
     public int compare(int cNum) {
-
-        switch (pNum) {
-            case 0: // 바위
-                if (cNum == 1) { // 바위 vs. 보
-                    return 2;
-                } else if (cNum == 2) { // 바위 vs. 가위-
-                    return 1;
-                }
-                break;
-            case 1: // 보
-                if (cNum == 0) { // 보 vs. 바위
-                    return 1;
-                } else if (cNum == 2) { // 보 vs. 가위
-                    return 2;
-                }
-                break;
-            case 2: // 가위
-                if (cNum == 0) { // 가위 vs. 바위
-                    return 2;
-                } else if (cNum == 1) { // 가위 vs. 보
-                    return 1;
-                }
-                break;
+        if (pNum - cNum == -2 || pNum - cNum == 1) {
+            return 1;
+        } else if (pNum - cNum == -1 || pNum - cNum == 2) {
+            return 2;
         }
+
         return 0;
     }
 
