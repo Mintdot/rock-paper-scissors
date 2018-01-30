@@ -3,9 +3,9 @@ package com.example.mintdot.rockpaperscissors;
 import java.util.Random;
 
 public class Game {
-    Random rnd;
-    int pNum;
-    int cNum;
+    private Random rnd;
+    private int pNum;
+    private int cNum;
 
     public Game(int p) {
         rnd = new Random();

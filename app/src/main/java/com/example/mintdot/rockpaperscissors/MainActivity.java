@@ -18,17 +18,15 @@ public class MainActivity extends AppCompatActivity {
     private int lose;
     private int draw;
 
-    Game game;
+    private ImageView playerChoice;
+    private ImageView computerChoice;
+    private ImageButton rock;
+    private ImageButton paper;
+    private ImageButton scissors;
+    private TextView resultText;
+    private TextView ratingText;
 
-    ImageView playerChoice;
-    ImageView computerChoice;
-
-    ImageButton rock;
-    ImageButton paper;
-    ImageButton scissors;
-
-    TextView resultText;
-    TextView ratingText;
+    private Game game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
         playerChoice = (ImageView) findViewById(R.id.player_choice);
         computerChoice = (ImageView) findViewById(R.id.computer_choice);
-
         rock = (ImageButton) findViewById(R.id.Player1);
         paper = (ImageButton) findViewById(R.id.Player2);
         scissors = (ImageButton) findViewById(R.id.Player3);
-
         resultText = (TextView) findViewById(R.id.result);
         ratingText = (TextView) findViewById(R.id.rating);
 
@@ -72,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
                 play(player);
             }
         });
-
     }
 
     @Override
