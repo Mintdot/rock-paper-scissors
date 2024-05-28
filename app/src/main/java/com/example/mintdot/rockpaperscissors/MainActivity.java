@@ -153,5 +153,4 @@ public class MainActivity extends AppCompatActivity {
         resultText.setText(getResources().getString(R.string.result2));
         ratingText.setText(getResources().getString(R.string.rating));
     }
-
 }
